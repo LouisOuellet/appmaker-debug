@@ -1,18 +1,18 @@
-API.Plugins.debug = {
+Engine.Plugins.debug = {
 	init:function(){
 		var html = '', color = '', icon = '', txt = '';
-		API.GUI.ControlSidebar.add('User', 'fas fa-redo-alt fa-spin');
-		API.GUI.ControlSidebar.add('Groups', 'fas fa-redo-alt fa-spin');
-		API.GUI.ControlSidebar.add('Roles', 'fas fa-redo-alt fa-spin');
-		API.GUI.ControlSidebar.add('Permissions', 'fas fa-redo-alt fa-spin');
+		Engine.GUI.ControlSidebar.add('User', 'fas fa-redo-alt fa-spin');
+		Engine.GUI.ControlSidebar.add('Groups', 'fas fa-redo-alt fa-spin');
+		Engine.GUI.ControlSidebar.add('Roles', 'fas fa-redo-alt fa-spin');
+		Engine.GUI.ControlSidebar.add('Permissions', 'fas fa-redo-alt fa-spin');
 		var checkExist = setInterval(function() {
-			if((API.Contents.Auth != undefined)&&(API.Contents.Auth.User != undefined)){
+			if((Engine.Contents.Auth != undefined)&&(Engine.Contents.Auth.User != undefined)){
 				clearInterval(checkExist);
 				html = '<div class="row bg-lightblue mb-2" style="border-radius: 4px;">';
 				html += '<div class="col-md-12 pt-2">';
 				html += '<h5>USER DATA</h5>';
 				html += '</div></div><div class="row">';
-				$.each(API.Contents.Auth.User,function(index, value){
+				$.each(Engine.Contents.Auth.User,function(index, value){
 					html += '<div class="col-md-3">';
 					html += '<b>'+index+': </b></div>';
 					html += '<div class="col-md-9">'+value+'</div>';
@@ -21,12 +21,12 @@ API.Plugins.debug = {
 				$('#ctrsdbr-user-tab i').attr('class','fas fa-user');
 				$('#ctrsdbr-user-tab-content').html(html);
 			}
-			if((API.Contents.Auth != undefined)&&(API.Contents.Auth.Groups != undefined)){
+			if((Engine.Contents.Auth != undefined)&&(Engine.Contents.Auth.Groups != undefined)){
 				html = '<div class="row bg-lightblue mb-2" style="border-radius: 4px;">';
 				html += '<div class="col-md-12 pt-2">';
 				html += '<h5>GROUPS DATA</h5>';
 				html += '</div></div><div class="row">';
-				$.each(API.Contents.Auth.Groups,function(index, value){
+				$.each(Engine.Contents.Auth.Groups,function(index, value){
 					html += '<div class="col-md-3">';
 					html += '<b>'+index+': </b></div>';
 					html += '<div class="col-md-9">'+value+'</div>';
@@ -35,12 +35,12 @@ API.Plugins.debug = {
 				$('#ctrsdbr-groups-tab i').attr('class','fas fa-users');
 				$('#ctrsdbr-groups-tab-content').html(html);
 			}
-			if((API.Contents.Auth != undefined)&&(API.Contents.Auth.Roles != undefined)){
+			if((Engine.Contents.Auth != undefined)&&(Engine.Contents.Auth.Roles != undefined)){
 				html = '<div class="row bg-lightblue mb-2" style="border-radius: 4px;">';
 				html += '<div class="col-md-12 pt-2">';
 				html += '<h5>ROLES DATA</h5>';
 				html += '</div></div><div class="row">';
-				$.each(API.Contents.Auth.Roles,function(index, value){
+				$.each(Engine.Contents.Auth.Roles,function(index, value){
 					html += '<div class="col-md-3">';
 					html += '<b>'+index+': </b></div>';
 					html += '<div class="col-md-9">'+value+'</div>';
@@ -49,12 +49,12 @@ API.Plugins.debug = {
 				$('#ctrsdbr-roles-tab i').attr('class','fas fa-shield-alt');
 				$('#ctrsdbr-roles-tab-content').html(html);
 			}
-			if((API.Contents.Auth != undefined)&&(API.Contents.Auth.Permissions != undefined)){
+			if((Engine.Contents.Auth != undefined)&&(Engine.Contents.Auth.Permissions != undefined)){
 				html = '<div class="row bg-lightblue mb-2" style="border-radius: 4px;">';
 				html += '<div class="col-md-12 pt-2">';
 				html += '<h5>PERMISSIONS DATA</h5>';
 				html += '</div></div><div class="accordion m-0 p-0" id="ctrsdbr-permissions-tab-content-accordion">';
-				$.each(API.Contents.Auth.Permissions,function(index, value){
+				$.each(Engine.Contents.Auth.Permissions,function(index, value){
 					html += '<div class="card m-0 card-dark">';
 						html += '<div class="card-header p-0 pointer" id="trsdbr-permissions-tab-content-hdr-'+index+'" data-toggle="collapse" data-target="#trsdbr-permissions-tab-content-collapse-'+index+'">';
 		          html += '<h2 class="mb-0">';
@@ -109,4 +109,4 @@ API.Plugins.debug = {
 	}
 }
 
-API.Plugins.debug.init();
+Engine.Plugins.debug.init();
